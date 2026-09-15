@@ -1,0 +1,6 @@
+{
+  "name": "StudySwap",
+  "description": "AI-powered marketplace for students and competitive exam aspirants to buy, sell, and exchange books, handwritten notes, and study accessories.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
