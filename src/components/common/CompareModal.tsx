@@ -241,16 +241,18 @@ export const CompareModal: React.FC = () => {
                           <span>AI Note Score</span>
                         </div>
                       </td>
-                      {comparedListings.map((item) => (
+                      {comparedListings.map((item) => {
+                        const scoreVal = item.aiScore ? (typeof item.aiScore === 'object' ? (item.aiScore as any).overall : item.aiScore) : 0;
+                        return (
                         <td key={item.id} className="p-4 border-l border-slate-200">
                           {item.aiScore ? (
                             <div>
                               <div className="flex items-center space-x-2">
                                 <div className="px-2 py-0.5 rounded-md bg-purple-600 text-white font-bold text-xs">
-                                  {item.aiScore}/100
+                                  {scoreVal}/100
                                 </div>
                                 <span className="text-xs font-semibold text-purple-900">
-                                  {item.aiScore >= 90 ? 'Gold Certified' : 'Silver Certified'}
+                                  {scoreVal >= 90 ? 'Gold Certified' : 'Silver Certified'}
                                 </span>
                               </div>
                               {item.aiAnalysis && (
@@ -278,7 +280,8 @@ export const CompareModal: React.FC = () => {
                             </div>
                           )}
                         </td>
-                      ))}
+                      );
+                      })}
                       {Array.from({ length: 3 - comparedListings.length }).map((_, i) => (
                         <td key={i} className="p-4 border-l border-slate-200 bg-slate-50/20 text-slate-300 text-center">—</td>
                       ))}

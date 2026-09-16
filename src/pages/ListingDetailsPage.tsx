@@ -164,7 +164,7 @@ export const ListingDetailsPage: React.FC = () => {
             {listing.aiScore && (
               <div className="absolute top-4 right-4 bg-purple-700/90 backdrop-blur-md text-white font-extrabold text-xs px-3 py-1.5 rounded-xl shadow-md border border-purple-300/30 flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-                <span>AI Quality Score: {listing.aiScore}/100</span>
+                <span>AI Quality Score: {typeof listing.aiScore === 'object' ? (listing.aiScore as any).overall : listing.aiScore}/100</span>
               </div>
             )}
           </div>
