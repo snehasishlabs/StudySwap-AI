@@ -13,7 +13,6 @@ import {
   ChevronDown,
   ShieldCheck,
   BrainCircuit,
-  Database,
   ArrowRight
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
@@ -84,15 +83,6 @@ export const Navbar: React.FC = () => {
               }`}
             >
               Continue as Seller Demo
-            </button>
-            <button
-              id="nav-db-schema-btn"
-              onClick={() => navigateTo('db-schema')}
-              className="hidden lg:flex items-center gap-1 bg-white/10 hover:bg-white/20 text-white px-2 py-0.5 rounded-md font-medium transition cursor-pointer"
-              title="View Supabase PostgreSQL Schema"
-            >
-              <Database className="w-3 h-3 text-cyan-300" />
-              DB Schema
             </button>
           </div>
         </div>
