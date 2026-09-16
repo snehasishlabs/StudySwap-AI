@@ -27,7 +27,7 @@ import { ContactPage } from './pages/ContactPage';
 import { AdminPanelPage } from './pages/AdminPanelPage';
 
 export function AppContent() {
-  const { currentPage, setIsDbSchemaModalOpen } = useApp();
+  const { currentPage, setIsDbSchemaModalOpen, theme } = useApp();
 
   // Scroll to top on page transition
   useEffect(() => {
@@ -81,7 +81,13 @@ export function AppContent() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-blue-600 selection:text-white">
+    <div className={`min-h-screen flex flex-col transition-colors duration-200 selection:bg-blue-600 selection:text-white ${
+      theme === 'dark' 
+        ? 'bg-slate-950 text-slate-100' 
+        : theme === 'sepia' 
+        ? 'bg-[#fbf7ee] text-[#3e2f20]' 
+        : 'bg-slate-50 text-slate-900'
+    }`}>
       {/* Top Main Navigation */}
       <Navbar />
 

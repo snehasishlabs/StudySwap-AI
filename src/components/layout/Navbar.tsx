@@ -16,6 +16,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
+import { ThemeToggleButton } from '../common/ThemeToggleButton';
 
 export const Navbar: React.FC = () => {
   const { 
@@ -256,6 +257,9 @@ export const Navbar: React.FC = () => {
               )}
             </button>
 
+            {/* Theme Change Button */}
+            <ThemeToggleButton showLabel={false} />
+
             {/* User Dashboard Profile Menu */}
             <div className="relative">
               <button
@@ -367,6 +371,11 @@ export const Navbar: React.FC = () => {
                       <span>Priya (Seller Demo)</span>
                       {currentUser.role === 'seller' && <span className="w-1.5 h-1.5 rounded-full bg-purple-600" />}
                     </button>
+                  </div>
+
+                  {/* Theme Switcher in User Dropdown */}
+                  <div className="pt-2.5 mt-2 border-t border-slate-100">
+                    <ThemeToggleButton variant="expanded" />
                   </div>
                 </div>
               )}
@@ -494,6 +503,10 @@ export const Navbar: React.FC = () => {
             >
               Seller Demo (Priya)
             </button>
+          </div>
+
+          <div className="pt-3 border-t border-slate-100">
+            <ThemeToggleButton variant="expanded" />
           </div>
         </div>
       )}

@@ -22,6 +22,8 @@ export type PageName =
   | 'admin'
   | 'db-schema';
 
+export type ThemeMode = 'light' | 'dark' | 'sepia';
+
 interface ToastInfo {
   id: string;
   message: string;
@@ -29,6 +31,9 @@ interface ToastInfo {
 }
 
 interface AppContextType {
+  theme: ThemeMode;
+  setTheme: (theme: ThemeMode) => void;
+  toggleTheme: () => void;
   currentUser: UserProfile;
   setCurrentUser: React.Dispatch<React.SetStateAction<UserProfile>>;
   switchToBuyerDemo: (destination?: PageName) => void;
@@ -129,6 +134,49 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const dismissToast = (id: string) => {
     setToasts(prev => prev.filter(t => t.id !== id));
   };
+
+  const [theme, setThemeState] = useState<ThemeMode>(() => {
+    try {
+      const saved = localStorage.getItem('studyswap_theme');
+      if (saved === 'dark' || saved === 'sepia' || saved === 'light') {
+        return saved;
+      }
+      if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+    } catch {
+      // ignore
+    }
+    return 'light';
+  });
+
+  const setTheme = (newTheme: ThemeMode) => {
+    setThemeState(newTheme);
+    try {
+      localStorage.setItem('studyswap_theme', newTheme);
+    } catch {
+      // ignore
+    }
+    const label = newTheme === 'dark' ? 'Night Study Mode (Dark)' : newTheme === 'sepia' ? 'Warm Eye-Care Mode (Paper)' : 'Daylight Mode (Light)';
+    showToast(`Switched theme to ${label}`, 'info');
+  };
+
+  const toggleTheme = () => {
+    const nextTheme: ThemeMode = theme === 'light' ? 'dark' : theme === 'dark' ? 'sepia' : 'light';
+    setTheme(nextTheme);
+  };
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      const root = document.documentElement;
+      root.classList.remove('dark', 'theme-sepia');
+      if (theme === 'dark') {
+        root.classList.add('dark');
+      } else if (theme === 'sepia') {
+        root.classList.add('theme-sepia');
+      }
+    }
+  }, [theme]);
 
   const navigateTo = (page: PageName, listingId?: string) => {
     if (listingId) {
@@ -472,6 +520,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         toasts,
         showToast,
         dismissToast,
+        theme,
+        setTheme,
+        toggleTheme,
       }}
     >
       {children}

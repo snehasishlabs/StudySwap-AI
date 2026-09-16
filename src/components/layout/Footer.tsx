@@ -2,6 +2,7 @@ import React from 'react';
 import { BookOpen, Sparkles, Heart, Shield, Leaf, Database, Terminal, CheckCircle2 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { EXAM_CATEGORIES } from '../../data/mockData';
+import { ThemeToggleButton } from '../common/ThemeToggleButton';
 
 export const Footer: React.FC = () => {
   const { navigateTo, setSelectedExamFilter } = useApp();
@@ -178,13 +179,17 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom copyright */}
+        {/* Bottom copyright & Theme Switcher */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} StudySwap Platform. Built for Student Success & Zero Waste.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-5 flex-wrap">
             <button onClick={() => navigateTo('about')} className="hover:text-slate-300">About Us</button>
             <button onClick={() => navigateTo('contact')} className="hover:text-slate-300">Contact & Support</button>
             <button onClick={() => navigateTo('db-schema')} className="hover:text-slate-300">Database Specs</button>
+            <div className="flex items-center gap-2 border-l border-slate-700 pl-4">
+              <span className="text-slate-400 font-medium">Theme:</span>
+              <ThemeToggleButton showLabel={true} />
+            </div>
           </div>
         </div>
       </div>
