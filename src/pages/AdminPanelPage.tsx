@@ -7,7 +7,6 @@ import {
   Users, 
   Package, 
   Sparkles, 
-  Database, 
   Activity,
   ArrowRight,
   TrendingUp,
@@ -158,13 +157,10 @@ export const AdminPanelPage: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          <button
-            onClick={() => navigateTo('db-schema')}
-            className="bg-white/10 hover:bg-white/20 text-white font-bold text-xs px-4 py-2.5 rounded-xl border border-white/20 flex items-center gap-2 transition cursor-pointer"
-          >
-            <Database className="w-4 h-4 text-emerald-400" />
-            <span>Supabase Schema</span>
-          </button>
+          <div className="bg-emerald-500/20 text-emerald-300 font-bold text-xs px-4 py-2.5 rounded-xl border border-emerald-500/30 flex items-center gap-2">
+            <Activity className="w-4 h-4 text-emerald-400" />
+            <span>Marketplace Health: Active</span>
+          </div>
         </div>
       </div>
 

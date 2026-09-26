@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Sparkles, Heart, Shield, Leaf, Database, Terminal, CheckCircle2 } from 'lucide-react';
+import { BookOpen, Sparkles, Leaf, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { EXAM_CATEGORIES } from '../../data/mockData';
 import { ThemeToggleButton } from '../common/ThemeToggleButton';
@@ -73,10 +73,10 @@ export const Footer: React.FC = () => {
                 OpenStreetMap Geolocation
               </span>
               <span className="bg-slate-800 text-purple-300 px-2.5 py-1 rounded-md border border-slate-700">
-                Gemini 3.8 Flash AI
+                Gemini AI Engine
               </span>
-              <span className="bg-slate-800 text-cyan-300 px-2.5 py-1 rounded-md border border-slate-700">
-                Supabase / PostgreSQL
+              <span className="bg-slate-800 text-emerald-300 px-2.5 py-1 rounded-md border border-slate-700">
+                Zero-Waste Circular Model
               </span>
             </div>
           </div>
@@ -129,7 +129,7 @@ export const Footer: React.FC = () => {
           {/* AI Features & Platform */}
           <div>
             <h5 className="text-white font-bold text-sm uppercase tracking-wider mb-4">
-              AI & Architecture
+              AI Tools & Platform
             </h5>
             <ul className="space-y-2 text-sm text-slate-400">
               <li>
@@ -160,18 +160,19 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <button
-                  onClick={() => navigateTo('db-schema')}
-                  className="hover:text-emerald-400 transition flex items-center gap-1.5 cursor-pointer text-emerald-400/90 font-medium"
+                  onClick={() => navigateTo('ai-study-companion')}
+                  className="hover:text-blue-400 transition flex items-center gap-1.5 cursor-pointer text-blue-400 font-medium"
                 >
-                  <Database className="w-3.5 h-3.5" />
-                  Supabase DB Schema
+                  <BookOpen className="w-3.5 h-3.5" />
+                  AI Study Companion
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => navigateTo('admin')}
-                  className="hover:text-slate-200 transition cursor-pointer"
+                  className="hover:text-slate-200 transition flex items-center gap-1.5 cursor-pointer"
                 >
+                  <ShieldCheck className="w-3.5 h-3.5 text-slate-400" />
                   Trust & Moderation
                 </button>
               </li>
@@ -185,7 +186,7 @@ export const Footer: React.FC = () => {
           <div className="flex items-center gap-5 flex-wrap">
             <button onClick={() => navigateTo('about')} className="hover:text-slate-300">About Us</button>
             <button onClick={() => navigateTo('contact')} className="hover:text-slate-300">Contact & Support</button>
-            <button onClick={() => navigateTo('db-schema')} className="hover:text-slate-300">Database Specs</button>
+            <button onClick={() => navigateTo('about')} className="hover:text-slate-300">Student Protection Policy</button>
             <div className="flex items-center gap-2 border-l border-slate-700 pl-4">
               <span className="text-slate-400 font-medium">Theme:</span>
               <ThemeToggleButton showLabel={true} />

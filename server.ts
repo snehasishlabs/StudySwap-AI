@@ -40,8 +40,8 @@ async function generateGeminiContentWithFallback(
   }
 ): Promise<{ text: string; modelUsed: string } | null> {
   const timeoutMs = params.timeoutMs || 8000;
-  // Try gemini-1.5-flash first as most robust, then requested model / latest
-  const modelsToTry = ['gemini-1.5-flash', params.model || 'gemini-3.8-flash', 'gemini-flash-latest'];
+  // Try requested model or gemini-2.5-flash first, then graceful fallbacks
+  const modelsToTry = [params.model || 'gemini-2.5-flash', 'gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-flash-latest'];
   // Deduplicate
   const uniqueModels = Array.from(new Set(modelsToTry));
 
@@ -126,7 +126,7 @@ Return strictly valid JSON with this exact schema:
 }`;
 
         const result = await generateGeminiContentWithFallback(ai, {
-          model: 'gemini-3.8-flash',
+          model: 'gemini-2.5-flash',
           contents: prompt,
           config: {
             responseMimeType: 'application/json',
@@ -235,7 +235,7 @@ Return strictly valid JSON with this schema:
 }`;
 
         const result = await generateGeminiContentWithFallback(ai, {
-          model: 'gemini-3.8-flash',
+          model: 'gemini-2.5-flash',
           contents: prompt,
           config: {
             responseMimeType: 'application/json',
@@ -361,7 +361,7 @@ Return strictly valid JSON with this schema:
 }`;
 
         const result = await generateGeminiContentWithFallback(ai, {
-          model: 'gemini-3.8-flash',
+          model: 'gemini-2.5-flash',
           contents: prompt,
           config: {
             responseMimeType: 'application/json',
@@ -553,7 +553,7 @@ Return strictly valid JSON matching this exact schema:
         console.log(`[AI Debug] Prompt sent to Gemini:\n`, prompt);
 
         const result = await generateGeminiContentWithFallback(ai, {
-          model: 'gemini-3.8-flash',
+          model: 'gemini-2.5-flash',
           contents: prompt,
           config: {
             responseMimeType: 'application/json',
@@ -696,7 +696,7 @@ Return valid JSON with schema:
 }`;
 
         const result = await generateGeminiContentWithFallback(ai, {
-          model: 'gemini-3.8-flash',
+          model: 'gemini-2.5-flash',
           contents: prompt,
           config: {
             responseMimeType: 'application/json',
@@ -826,7 +826,7 @@ Your objectives:
         });
 
         const result = await generateGeminiContentWithFallback(ai, {
-          model: 'gemini-3.8-flash',
+          model: 'gemini-2.5-flash',
           contents,
           config: {
             systemInstruction,

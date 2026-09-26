@@ -18,10 +18,10 @@
                   │ REST / Query                     │ AI Prompt / SDK
                   ▼                                  ▼
        ┌──────────────────────┐           ┌─────────────────────┐
-       │   Supabase Backend   │           │  Google Gemini API  │
-       │  • PostgreSQL DB     │           │  • Note Analysis    │
-       │  • Relational Schema │           │  • AI Recommender   │
-       │  • Auth & Policies   │           │  • Study Companion  │
+       │  Client Persistence  │           │  Google Gemini API  │
+       │  • Local Storage     │           │  • Note Analysis    │
+       │  • IndexedDB Cache   │           │  • AI Recommender   │
+       │  • Instant Sync      │           │  • Study Companion  │
        └──────────────────────┘           └─────────────────────┘
 ```
 
@@ -31,8 +31,8 @@
    - Built with React 18, TypeScript, and Tailwind CSS.
    - Component architecture organized into common UI elements, marketplace widgets, dashboard panels, and AI assistants.
 
-2. **Backend & Persistence Layer**:
-   - Supabase providing a robust PostgreSQL relational database storing Listings, Users, Chat Threads, Messages, and Wishlists.
+2. **Persistence & State Layer**:
+   - High-performance client-side state engine and resilient local caching managing Listings, Users, Chat Threads, Messages, and Wishlists.
 
 3. **Intelligence Layer (AI)**:
    - Google Gemini SDK (`@google/genai`) powering semantic search, study note evaluations, and intelligent book recommendations.

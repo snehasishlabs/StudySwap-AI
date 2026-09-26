@@ -3,7 +3,6 @@
 [![React](https://img.shields.io/badge/React-18+-blue.svg)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-Frontend-purple.svg)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-3E82F7.svg)](https://tailwindcss.com/)
-[![Supabase](https://img.shields.io/badge/Supabase-Backend-3ECF8E.svg)](https://supabase.com/)
 [![Gemini AI](https://img.shields.io/badge/Gemini-AI-4285F4.svg)](https://ai.google.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -83,7 +82,7 @@ Powered by Google Gemini AI:
 - **Frontend**: React 18+, Vite, TypeScript
 - **Styling**: Tailwind CSS, Lucide React Icons
 - **Animations**: Motion (Motion for React)
-- **Backend / Database**: Supabase & PostgreSQL (Schema documented in app & DB schema viewer)
+- **Data & State**: Fast client-side persistence and local storage cache
 - **AI Integration**: Google Gemini API (`@google/genai`)
 
 ---
@@ -96,13 +95,13 @@ User / Student
      ▼
 React Frontend (Vite + Tailwind CSS)
      │
-     ├──────────► Supabase Backend / PostgreSQL Database
+     ├──────────► Local Storage & Indexed Client State
      │
      └──────────► Google Gemini AI Services (Analysis, Recommendations, Chat)
 ```
 
 - **Frontend Layer**: Client-side single-page application with responsive layouts, modal overlays, and toast notifications.
-- **Backend & Database Layer**: Relational PostgreSQL schema managing Users, Listings, Chat Threads, Messages, and Wishlists.
+- **Data & State Layer**: Responsive state management for Users, Listings, Chat Threads, Messages, and Wishlists.
 - **AI Service Layer**: Server-side proxy handling Gemini generative requests securely.
 
 ---
@@ -147,7 +146,7 @@ You can switch between buyer and seller demo states instantly within the applica
    ```bash
    cp .env.example .env
    ```
-   Fill in your Supabase and Gemini credentials.
+   Fill in your Google Gemini API key.
 
 4. **Run development server**:
    ```bash
@@ -186,7 +185,7 @@ Detailed documentation is available in the [`docs/`](./docs) folder:
 
 ## 🔭 Future Scope
 
-- **Real-Time WebSockets**: Live multi-user chat and instant inventory status updates via Supabase Realtime.
+- **Real-Time WebSockets**: Live multi-user chat and instant inventory status updates.
 - **AI Price Oracle**: Automated market price suggestions based on historical campus demand.
 - **University Verification**: `.edu` student email verification to ensure 100% trusted campus transactions.
 - **Library Barcode Scanner**: Instant listing creation by scanning book ISBN barcodes.

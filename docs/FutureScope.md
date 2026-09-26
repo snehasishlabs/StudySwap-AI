@@ -1,7 +1,7 @@
 # Future Scope & Roadmap
 
 ## Phase 1: Real-Time & Collaboration (Q3 2026)
-- **Supabase Realtime**: Implement WebSocket-powered instant messaging and live inventory status updates so buyers see when books are sold in real time.
+- **Real-Time Collaboration**: Implement WebSocket-powered instant messaging and live inventory status updates so buyers see when books are sold in real time.
 - **Campus Push Notifications**: Web push alerts for counter-offers, wishlist price drops, and meetup reminders.
 
 ## Phase 2: Advanced AI Capabilities (Q4 2026)

@@ -3,7 +3,6 @@ import { useApp } from './context/AppContext';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { ToastContainer } from './components/common/ToastContainer';
-import { DbSchemaModal } from './components/common/DbSchemaModal';
 import { CompareModal } from './components/common/CompareModal';
 import { CompareFloatingBar } from './components/common/CompareFloatingBar';
 import { FloatingChatbox } from './components/ai/FloatingChatbox';
@@ -27,15 +26,12 @@ import { ContactPage } from './pages/ContactPage';
 import { AdminPanelPage } from './pages/AdminPanelPage';
 
 export function AppContent() {
-  const { currentPage, setIsDbSchemaModalOpen, theme } = useApp();
+  const { currentPage, theme } = useApp();
 
   // Scroll to top on page transition
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    if (currentPage === 'db-schema') {
-      setIsDbSchemaModalOpen(true);
-    }
-  }, [currentPage, setIsDbSchemaModalOpen]);
+  }, [currentPage]);
 
   const renderCurrentPage = () => {
     switch (currentPage) {
@@ -73,8 +69,6 @@ export function AppContent() {
         return <ContactPage />;
       case 'admin':
         return <AdminPanelPage />;
-      case 'db-schema':
-        return <MarketplacePage />;
       default:
         return <HomePage />;
     }
@@ -101,9 +95,6 @@ export function AppContent() {
 
       {/* Global Toast Notifications */}
       <ToastContainer />
-
-      {/* Supabase / PostgreSQL Schema Modal */}
-      <DbSchemaModal />
 
       {/* Compare Listings Modal & Floating Bar */}
       <CompareModal />

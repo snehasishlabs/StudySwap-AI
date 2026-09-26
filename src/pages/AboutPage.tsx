@@ -72,8 +72,8 @@ export const AboutPage: React.FC = () => {
             <span className="text-slate-400 text-[11px]">Secure server-side AI evaluation</span>
           </div>
           <div className="bg-slate-800 p-4 rounded-2xl border border-slate-700">
-            <span className="font-bold text-emerald-400 block text-sm">Supabase / SQL</span>
-            <span className="text-slate-400 text-[11px]">PostgreSQL relational storage</span>
+            <span className="font-bold text-emerald-400 block text-sm">Indexed Storage</span>
+            <span className="text-slate-400 text-[11px]">Instant client-side cache & resilience</span>
           </div>
           <div className="bg-slate-800 p-4 rounded-2xl border border-slate-700">
             <span className="font-bold text-cyan-400 block text-sm">OpenStreetMap</span>

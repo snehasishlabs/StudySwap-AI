@@ -19,8 +19,7 @@ export type PageName =
   | 'seller-profile' 
   | 'about' 
   | 'contact' 
-  | 'admin'
-  | 'db-schema';
+  | 'admin';
 
 export type ThemeMode = 'light' | 'dark' | 'sepia';
 
@@ -71,9 +70,6 @@ interface AppContextType {
   clearComparison: () => void;
   isCompareModalOpen: boolean;
   setIsCompareModalOpen: (open: boolean) => void;
-  // DB Schema modal
-  isDbSchemaModalOpen: boolean;
-  setIsDbSchemaModalOpen: (open: boolean) => void;
   toasts: ToastInfo[];
   showToast: (message: string, type?: 'success' | 'info' | 'warning') => void;
   dismissToast: (id: string) => void;
@@ -95,7 +91,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<ListingCategory | 'All'>('All');
   const [comparisonList, setComparisonList] = useState<string[]>([]);
   const [isCompareModalOpen, setIsCompareModalOpen] = useState<boolean>(false);
-  const [isDbSchemaModalOpen, setIsDbSchemaModalOpen] = useState<boolean>(false);
   const [toasts, setToasts] = useState<ToastInfo[]>([]);
 
   const toggleComparison = (listingId: string) => {
@@ -515,8 +510,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         clearComparison,
         isCompareModalOpen,
         setIsCompareModalOpen,
-        isDbSchemaModalOpen,
-        setIsDbSchemaModalOpen,
         toasts,
         showToast,
         dismissToast,
